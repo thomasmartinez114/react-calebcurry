@@ -46,7 +46,16 @@ function App() {
   ]);
 
   function updateEmployee(id, newName, newRole) {
-    console.log('updateEmployee inside of App.js');
+    // console.log('updateEmployee inside of App.js');
+    const updatedEmployees = employees.map(employee => {
+      if (id === employee.id) {
+        // return new
+        return { ...employee, name: newName, role: newRole };
+      }
+
+      return employee;
+    });
+    setEmployees(updatedEmployees);
   }
 
   const showEmployees = true;
@@ -57,7 +66,7 @@ function App() {
           <input
             type='text'
             onChange={e => {
-              console.log(e.target.value);
+              // console.log(e.target.value);
               setRole(e.target.value);
             }}
           />
