@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function EditEmployee() {
+function EditEmployee(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -42,7 +42,7 @@ function EditEmployee() {
                   className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500'
                   id='name'
                   type='text'
-                  value='Jane Doe'
+                  value={props.name}
                 />
               </div>
             </div>
@@ -60,7 +60,7 @@ function EditEmployee() {
                   className='bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500'
                   id='role'
                   type='text'
-                  value='Jane Doe'
+                  value={props.role}
                 />
               </div>
             </div>
