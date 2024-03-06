@@ -27,7 +27,7 @@ function AddEmployee(props) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Update Employee</Modal.Title>
+          <Modal.Title>Add Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form
@@ -96,7 +96,7 @@ function AddEmployee(props) {
             className='bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'
             form='editmodal'
           >
-            Update
+            Add
           </button>
         </Modal.Footer>
       </Modal>
