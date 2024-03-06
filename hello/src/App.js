@@ -3,6 +3,7 @@ import './components/Employee';
 import Employee from './components/Employee';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import AddEmployee from './components/AddEmployee';
 
 function App() {
   const [role, setRole] = useState('dev');
@@ -84,6 +85,7 @@ function App() {
               );
             })}
           </div>
+          <AddEmployee />
         </>
       ) : (
         <p>You cannot see the employees</p>
