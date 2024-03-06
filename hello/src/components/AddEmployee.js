@@ -33,6 +33,9 @@ function AddEmployee(props) {
           <form
             onSubmit={e => {
               e.preventDefault(); // prevent page refresh
+              setName('');
+              setRole('');
+              setImg('');
               // console.log('hello from edit employee');
               // console.log(props.id, name, role);
               props.newEmployee(name, role, img);
