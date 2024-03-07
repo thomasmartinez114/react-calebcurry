@@ -1,12 +1,13 @@
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import sphereIcon from '../media/logos/sphere-icon.png';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Forms', href: '#', current: false },
+  { name: 'Reporting', href: '#', current: false },
+  { name: 'Files', href: '#', current: false },
 ];
 
 function classNames(...classes) {
@@ -36,7 +37,7 @@ export default function Header() {
                 <div className='flex flex-shrink-0 items-center'>
                   <img
                     className='h-8 w-auto'
-                    src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500'
+                    src={sphereIcon}
                     alt='Your Company'
                   />
                 </div>
@@ -48,8 +49,8 @@ export default function Header() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            ? 'no-underline bg-gray-900 text-white'
+                            : 'no-underline text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
