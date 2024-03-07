@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployee';
+import Header from './components/Header';
 
 function App() {
   const [role, setRole] = useState('dev');
@@ -73,6 +74,7 @@ function App() {
   const showEmployees = true;
   return (
     <div className='App'>
+      <Header />
       {showEmployees ? (
         <>
           <input
