@@ -5,11 +5,16 @@ export default function Dictionary() {
   const [word2, setWord2] = useState('');
 
   useEffect(() => {
-    console.log('State updated', word + ' ' + word2);
-  }, []);
+    console.log('State updated ' + word);
+  }, [word]);
+
+  useEffect(() => {
+    console.log('State updated ' + word2);
+  }, [word2]);
 
   // no dependency array --> update for any state change
   // empty dependency array --> execute once
+  // passing in data --> this will only execute when those state variables are changed
 
   return (
     <>
