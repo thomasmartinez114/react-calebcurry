@@ -6,9 +6,10 @@ export default function Dictionary() {
 
   useEffect(() => {
     console.log('State updated', word + ' ' + word2);
-  });
+  }, []);
 
   // no dependency array --> update for any state change
+  // empty dependency array --> execute once
 
   return (
     <>
