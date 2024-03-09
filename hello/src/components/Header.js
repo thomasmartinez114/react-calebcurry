@@ -4,8 +4,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import sphereIcon from '../media/logos/sphere-icon.png';
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Forms', href: '#', current: false },
+  { name: 'Employees', href: '/Employees', current: true },
+  { name: 'Customers', href: '/Customers', current: false },
   { name: 'Reporting', href: '#', current: false },
   { name: 'Files', href: '#', current: false },
 ];
