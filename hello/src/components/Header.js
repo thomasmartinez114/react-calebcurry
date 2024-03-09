@@ -5,9 +5,9 @@ import sphereIcon from '../media/logos/sphere-icon.png';
 import { NavLink } from 'react-router-dom';
 
 const navigation = [
-  { name: 'Employees', href: '/Employees' },
-  { name: 'Customers', href: '/Customers' },
-  { name: 'Dictionary', href: '/Dictionary' },
+  { name: 'Employees', href: '/employees' },
+  { name: 'Customers', href: '/customers' },
+  { name: 'Dictionary', href: '/dictionary' },
   { name: 'Files', href: '/other2' },
 ];
 
