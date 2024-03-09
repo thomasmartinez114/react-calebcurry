@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Defintion() {
   const [word, setWord] = useState();
@@ -17,7 +18,7 @@ export default function Defintion() {
       <h1>Here is a definition</h1>
       {word.map(meaning => {
         return (
-          <p>
+          <p key={uuidv4}>
             {meaning.partOfSpeech + ' '}
             {meaning.definitions[0].definition}
           </p>
