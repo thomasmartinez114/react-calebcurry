@@ -1,8 +1,23 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Defintion() {
+  const [word, setWord] = useState();
+
   useEffect(() => {
-    console.log('page loaded');
+    fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello')
+      .then(response => response.json())
+      .then(data => {
+        setWord(data[0].meanings);
+        console.log(data[0].meanings);
+      });
   }, []);
-  return <p>Here is a definition.</p>;
+
+  return (
+    <>
+      <h1>Here is a definition</h1>
+      {word.map(meaning => {
+        return <p>{meaning.definitions[0].definition}</p>;
+      })}
+    </>
+  );
 }
