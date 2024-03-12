@@ -9,3 +9,9 @@
     - Backend
         - Django
         - Python
+            - create virtual environment
+                - >> py -m venv .venv
+            - activate virtual environment
+                - >> .venv\scripts\activate
+            - install django
+                - >> py -m pip install django
