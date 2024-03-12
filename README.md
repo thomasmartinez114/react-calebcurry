@@ -6,3 +6,6 @@
         - Universal Identifiers to use as a key id
     - Bootstrap
     - React-router-dom
+    - Backend
+        - Django
+        - Python
