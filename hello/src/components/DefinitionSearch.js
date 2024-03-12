@@ -9,7 +9,7 @@ export default function DefinitionSearch() {
     <form
       className='flex space-between space-x-2 max-w-[300px]'
       onSubmit={() => {
-        navigate('/definition/' + word);
+        navigate('/dictionary/' + word);
       }}
     >
       <input
