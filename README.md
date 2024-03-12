@@ -18,3 +18,11 @@
       - > > django-admin startproject customers .
         - starts customer project
       - > > py manage.py runserver
+      - Install Django Rest Framework
+        - > > pip install django-rest-framework
+      - To keep track of dependencies (do this for every dependency install)
+        - > > pip freeze
+        - or put into a file
+          - > > pip freeze > requirements.txt
+        - npm install equivalent is
+          - > > pip install -r requirements.txt
