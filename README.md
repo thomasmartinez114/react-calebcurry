@@ -26,3 +26,5 @@
           - > > pip freeze > requirements.txt
         - npm install equivalent is
           - > > pip install -r requirements.txt
+        - Create super user
+          - > > py .\manage.py createsuperuser
