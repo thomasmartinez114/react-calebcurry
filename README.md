@@ -1,17 +1,30 @@
 # react-calebcurry
 
 - Packages:
-    - Tailwind CSS
-    - uuid
-        - Universal Identifiers to use as a key id
-    - Bootstrap
-    - React-router-dom
-    - Backend
-        - Django
-        - Python
-            - create virtual environment
-                - >> py -m venv .venv
-            - activate virtual environment
-                - >> .venv\scripts\activate
-            - install django
-                - >> py -m pip install django
+  - Tailwind CSS
+  - uuid
+    - Universal Identifiers to use as a key id
+  - Bootstrap
+  - React-router-dom
+  - Backend
+    - Powershell run the following commands:
+      - Python
+        - > > py -m venv .venv
+        - > > .\.venv\scripts\activate
+    - Django
+      - > > py -m pip install django
+      - > > django -admin
+        - shows the commands
+      - > > django-admin startproject customers .
+        - starts customer project
+      - > > py manage.py runserver
+      - Install Django Rest Framework
+        - > > pip install django-rest-framework
+      - To keep track of dependencies (do this for every dependency install)
+        - > > pip freeze
+        - or put into a file
+          - > > pip freeze > requirements.txt
+        - npm install equivalent is
+          - > > pip install -r requirements.txt
+        - Create super user
+          - > > py .\manage.py createsuperuser
