@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 export default function Customer() {
   const { id } = useParams();
   const [customer, setCustomer] = useState();
+  const [notFound, setNotFound] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,8 +15,9 @@ export default function Customer() {
       .then((response) => {
         if (response.status === 404) {
           // redirect to 404 page (new URL)
-          navigate("/404");
+          //   navigate("/404");
           // render a 404 component in this page
+          setNotFound(true);
         }
         return response.json();
       })
@@ -26,6 +28,11 @@ export default function Customer() {
 
   return (
     <>
+      {notFound ? (
+        <p>
+          The customer with id <b>{id}</b> was not found
+        </p>
+      ) : null}
       {customer ? (
         <div>
           <p>{customer.id}</p>
