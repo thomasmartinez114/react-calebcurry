@@ -39,10 +39,12 @@ export default function Customers() {
         return response.json();
       })
       .then((data) => {
-        toggleShow();
         // assume the add was successful
         // hide the modal
+        toggleShow();
         // make sure list is updated appropratiely
+        setCustomers([...customers, data.customer]);
+        console.log(data);
       })
       .catch((e) => {
         console.log(e);
