@@ -4,8 +4,7 @@ import Modal from "react-bootstrap/Modal";
 
 export default function AddCustomer(props) {
   const [name, setName] = useState("");
-  const [role, setRole] = useState("");
-  const [img, setImg] = useState("");
+  const [industry, setIndustry] = useState("");
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -34,11 +33,8 @@ export default function AddCustomer(props) {
             onSubmit={(e) => {
               e.preventDefault(); // prevent page refresh
               setName("");
-              setRole("");
-              setImg("");
-              // console.log('hello from edit Customer');
-              // console.log(props.id, name, role);
-              props.newCustomer(name, role, img);
+              setIndustry("");
+              props.newCustomer(name, industry);
             }}
             id="editmodal"
             className="w-full max-w-sm"
@@ -80,9 +76,9 @@ export default function AddCustomer(props) {
                   id="industry"
                   placeholder="Computing"
                   type="text"
-                  value={role}
+                  value={industry}
                   onChange={(e) => {
-                    setRole(e.target.value);
+                    setIndustry(e.target.value);
                   }}
                 />
               </div>
