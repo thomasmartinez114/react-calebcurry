@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { baseUrl } from "../shared";
+import AddCustomer from "../components/AddCustomer";
 
 export default function Customers() {
   const [customers, setCustomers] = useState();
@@ -29,6 +30,7 @@ export default function Customers() {
             })
           : null}
       </ul>
+      <AddCustomer />
     </>
   );
 }
