@@ -6,8 +6,16 @@ import { baseUrl } from "../shared";
 export default function Customer() {
   const { id } = useParams();
   const [customer, setCustomer] = useState();
+  const [tempCustomer, setTempCustomer] = useState();
   const [notFound, setNotFound] = useState();
+  const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("customer", customer);
+    console.log("temp customer", tempCustomer);
+    console.log(changed);
+  });
 
   useEffect(() => {
     // console.log('useEffect')
@@ -25,6 +33,7 @@ export default function Customer() {
       })
       .then((data) => {
         setCustomer(data.customer);
+        setTempCustomer(data.customer);
       });
   }, []);
 
@@ -37,12 +46,24 @@ export default function Customer() {
       ) : null}
       {customer ? (
         <div>
-          <input className="m-2 block px-2" type="text" value={customer.id} />
-          <input className="m-2 block px-2" type="text" value={customer.name} />
+          <p className="m-2 block px-2">ID: {customer.id}</p>
           <input
             className="m-2 block px-2"
             type="text"
-            value={customer.industry}
+            value={tempCustomer.name}
+            onChange={(e) => {
+              setChanged(true);
+              setTempCustomer({ ...tempCustomer, name: e.target.value });
+            }}
+          />
+          <input
+            className="m-2 block px-2"
+            type="text"
+            value={tempCustomer.industry}
+            onChange={(e) => {
+              setChanged(true);
+              setTempCustomer({ ...tempCustomer, industry: e.target.value });
+            }}
           />
         </div>
       ) : null}
