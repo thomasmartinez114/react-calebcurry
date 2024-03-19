@@ -65,6 +65,11 @@ export default function Customer() {
               setTempCustomer({ ...tempCustomer, industry: e.target.value });
             }}
           />
+          {changed ? (
+            <>
+              <button>Cancel</button> <button>Save</button>
+            </>
+          ) : null}
         </div>
       ) : null}
       <button
