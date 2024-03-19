@@ -67,7 +67,15 @@ export default function Customer() {
           />
           {changed ? (
             <>
-              <button>Cancel</button> <button>Save</button>
+              <button
+                onClick={(e) => {
+                  setTempCustomer({ ...customer });
+                  setChanged(false);
+                }}
+              >
+                Cancel
+              </button>{" "}
+              <button>Save</button>
             </>
           ) : null}
         </div>
