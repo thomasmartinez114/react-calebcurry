@@ -37,9 +37,13 @@ export default function Customer() {
       ) : null}
       {customer ? (
         <div>
-          <p>{customer.id}</p>
-          <p>{customer.name}</p>
-          <p>{customer.industry}</p>
+          <input className="m-2 block px-2" type="text" value={customer.id} />
+          <input className="m-2 block px-2" type="text" value={customer.name} />
+          <input
+            className="m-2 block px-2"
+            type="text"
+            value={customer.industry}
+          />
         </div>
       ) : null}
       <button
