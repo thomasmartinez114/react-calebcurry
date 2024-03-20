@@ -12,9 +12,9 @@ export default function Customer() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("customer", customer);
-    console.log("temp customer", tempCustomer);
-    console.log(changed);
+    //console.log("customer", customer);
+    //console.log("temp customer", tempCustomer);
+    //console.log(changed);
   });
 
   useEffect(() => {
@@ -50,6 +50,7 @@ export default function Customer() {
         return response.json();
       })
       .then((data) => {
+        setCustomer(data.customer);
         setChanged(false);
         console.log(data);
       })
