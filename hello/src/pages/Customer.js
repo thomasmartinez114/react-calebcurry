@@ -37,6 +37,25 @@ export default function Customer() {
       });
   }, []);
 
+  function updateCustomer() {
+    const url = baseUrl + "api/customers/" + id;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(tempCustomer),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setChanged(false);
+        console.log(data);
+      })
+      .catch();
+  }
+
   return (
     <>
       {notFound ? (
@@ -75,7 +94,7 @@ export default function Customer() {
               >
                 Cancel
               </button>{" "}
-              <button>Save</button>
+              <button onClick={updateCustomer}>Save</button>
             </>
           ) : null}
         </div>
