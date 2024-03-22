@@ -11,10 +11,16 @@ export default function Customer() {
   const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
 
+  // useEffect to to compare the state objects of customer & tempCustomer
   useEffect(() => {
-    //console.log("customer", customer);
-    //console.log("temp customer", tempCustomer);
-    //console.log(changed);
+    if (!customer) return;
+    if (!customer) return;
+    // console.log(customer, tempCustomer); // view changes to the inputs
+    let equal = true;
+    if (customer.name !== tempCustomer.name) equal = false;
+    if (customer.industry !== tempCustomer.industry) equal = false;
+
+    if (equal) setChanged(false);
   });
 
   useEffect(() => {
