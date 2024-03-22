@@ -16,7 +16,7 @@ export default function Customer() {
   useEffect(() => {
     if (!customer) return;
     if (!customer) return;
-    console.log(customer, tempCustomer); // view changes to the inputs
+    // console.log(customer, tempCustomer); // view changes to the inputs
     let equal = true;
     if (customer.name !== tempCustomer.name) equal = false;
     if (customer.industry !== tempCustomer.industry) equal = false;
@@ -36,11 +36,20 @@ export default function Customer() {
           // render a 404 component in this page
           setNotFound(true);
         }
+
+        if (!response.ok) {
+          throw new Error("Something went wrong, try again later.");
+        }
+
         return response.json();
       })
       .then((data) => {
         setCustomer(data.customer);
         setTempCustomer(data.customer);
+        setError(undefined);
+      })
+      .catch((e) => {
+        setError(e.message);
       });
   }, []);
 
@@ -54,17 +63,18 @@ export default function Customer() {
       body: JSON.stringify(tempCustomer),
     })
       .then((response) => {
-        console.log("response: ", response);
+        // console.log("response: ", response);
         if (!response.ok) throw new Error("something went wrong");
         return response.json();
       })
       .then((data) => {
         setCustomer(data.customer);
         setChanged(false);
-        console.log(data);
+        // console.log(data);
+        setError(undefined);
       })
       .catch((e) => {
-        console.log("e", e);
+        // console.log("e", e);
         setError(e.message);
       });
   }
@@ -131,15 +141,16 @@ export default function Customer() {
                   navigate("/customers");
                 })
                 .catch((e) => {
-                  console.log(e);
+                  // console.log(e);
+                  setError(e.message);
                 });
             }}
           >
             Delete
           </button>
-          {error ? <p>{error}</p> : null}
         </div>
       ) : null}
+      {error ? <p>{error}</p> : null}
       <br />
       <Link to="/customers">Go Back</Link>
     </>
