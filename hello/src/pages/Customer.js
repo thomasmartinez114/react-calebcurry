@@ -107,31 +107,32 @@ export default function Customer() {
               </button>
             </>
           ) : null}
+
+          <button
+            onClick={() => {
+              console.log("Deleting Customer");
+              const url = baseUrl + "api/customers/" + id;
+              fetch(url, {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+                .then((response) => {
+                  if (!response.ok) {
+                    throw new Error("Something went wrong");
+                  }
+                  navigate("/customers");
+                })
+                .catch((e) => {
+                  console.log(e);
+                });
+            }}
+          >
+            Delete
+          </button>
         </div>
       ) : null}
-      <button
-        onClick={() => {
-          console.log("Deleting Customer");
-          const url = baseUrl + "api/customers/" + id;
-          fetch(url, {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Something went wrong");
-              }
-              navigate("/customers");
-            })
-            .catch((e) => {
-              console.log(e);
-            });
-        }}
-      >
-        Delete
-      </button>
       <br />
       <Link to="/customers">Go Back</Link>
     </>
