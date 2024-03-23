@@ -91,7 +91,9 @@ export default function Customer() {
         <div>
           <form id="customer" onSubmit={updateCustomer}>
             <p className="m-2 block px-2">ID: {customer.id}</p>
+            <label for="name">Name</label>
             <input
+              id="name"
               className="m-2 block px-2"
               type="text"
               value={tempCustomer.name}
@@ -100,7 +102,9 @@ export default function Customer() {
                 setTempCustomer({ ...tempCustomer, name: e.target.value });
               }}
             />
+            <label for="industry">Industry</label>
             <input
+              id="industry"
               className="m-2 block px-2"
               type="text"
               value={tempCustomer.industry}
