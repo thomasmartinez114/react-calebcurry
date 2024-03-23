@@ -89,7 +89,7 @@ export default function Customer() {
       ) : null}
       {customer ? (
         <div>
-          <form id="customer">
+          <form id="customer" onSubmit={updateCustomer}>
             <p className="m-2 block px-2">ID: {customer.id}</p>
             <input
               className="m-2 block px-2"
@@ -121,7 +121,7 @@ export default function Customer() {
               >
                 Cancel
               </button>{" "}
-              <button form="customer" className="m-2" onClick={updateCustomer}>
+              <button form="customer" className="m-2">
                 Save
               </button>
             </>
