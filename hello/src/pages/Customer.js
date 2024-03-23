@@ -53,7 +53,8 @@ export default function Customer() {
       });
   }, []);
 
-  function updateCustomer() {
+  function updateCustomer(e) {
+    e.preventDefault();
     const url = baseUrl + "api/customers/" + id;
     fetch(url, {
       method: "POST",
@@ -88,25 +89,27 @@ export default function Customer() {
       ) : null}
       {customer ? (
         <div>
-          <p className="m-2 block px-2">ID: {customer.id}</p>
-          <input
-            className="m-2 block px-2"
-            type="text"
-            value={tempCustomer.name}
-            onChange={(e) => {
-              setChanged(true);
-              setTempCustomer({ ...tempCustomer, name: e.target.value });
-            }}
-          />
-          <input
-            className="m-2 block px-2"
-            type="text"
-            value={tempCustomer.industry}
-            onChange={(e) => {
-              setChanged(true);
-              setTempCustomer({ ...tempCustomer, industry: e.target.value });
-            }}
-          />
+          <form id="customer">
+            <p className="m-2 block px-2">ID: {customer.id}</p>
+            <input
+              className="m-2 block px-2"
+              type="text"
+              value={tempCustomer.name}
+              onChange={(e) => {
+                setChanged(true);
+                setTempCustomer({ ...tempCustomer, name: e.target.value });
+              }}
+            />
+            <input
+              className="m-2 block px-2"
+              type="text"
+              value={tempCustomer.industry}
+              onChange={(e) => {
+                setChanged(true);
+                setTempCustomer({ ...tempCustomer, industry: e.target.value });
+              }}
+            />
+          </form>
           {changed ? (
             <>
               <button
@@ -118,7 +121,7 @@ export default function Customer() {
               >
                 Cancel
               </button>{" "}
-              <button className="m-2" onClick={updateCustomer}>
+              <button form="customer" className="m-2" onClick={updateCustomer}>
                 Save
               </button>
             </>
